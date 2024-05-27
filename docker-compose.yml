@@ -43,7 +43,7 @@ services:
       - "7899:7899"
       - "7898:7898"
       # HTTP port for prometheus endpoint for metrics export
-      - "9000:9000"
+      - "6000:9000"
     networks:
       - moor_net
   moor-telnet-host:
@@ -61,7 +61,7 @@ services:
       'run -p moor-telnet-host -- --telnet-address=0.0.0.0:8888 --rpc-server=tcp://moor-daemon:7899 --narrative-server=tcp://moor-daemon:7898'"
     ports:
       # Telnet listener
-      - "8888:8888"
+      - "6667:8888"
     networks:
       - moor_net
   moor-web-host:
@@ -79,6 +79,6 @@ services:
       'run -p moor-web-host -- --listen-address=0.0.0.0:8080 --rpc-server=tcp://moor-daemon:7899 --narrative-server=tcp://moor-daemon:7898'"
     ports:
       # HTTP listener
-      - "8080:8080"
+      - "6060:8080"
     networks:
       - moor_net
